@@ -23,11 +23,11 @@ public class InsertionSortTest {
      * Test of sort method, of class InsertionSort.
      */
     private int[] array = {1, 10, 0, -2, 5, 13, 2, 13}, result;
-    @Test(expected = NullPointerException.class)
+    @Test(expected = AssertionError.class)
     public void testSort() {
         try{
         result = array.clone();
-        
+        Arrays.sort(result);
         System.out.printf("sort: %s", Arrays.toString(array));
         
         InsertionSort instance = new InsertionSort();
@@ -36,7 +36,7 @@ public class InsertionSortTest {
         assertArrayEquals("Array is unsorted", array, result);
         System.out.printf("\nsorted: %s\n", Arrays.toString(array));
         }
-        catch(AssertionError error){}
+        catch(NullPointerException error){}
     }
     
 }

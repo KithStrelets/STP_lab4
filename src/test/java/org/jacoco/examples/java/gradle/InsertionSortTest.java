@@ -17,7 +17,7 @@ public class InsertionSortTest {
 
     private final int[] target = new int[]{1, 10, 0, -2, 5, 13, 2, 13};
 
-    private int[] expectedResult, actual;
+    private int[] expectedResult;
 
     /**
      * Test of sort method, of class InsertionSort.
@@ -27,7 +27,7 @@ public class InsertionSortTest {
     public void testSort() {
 
         InsertionSort insertionSort = new InsertionSort();
-        actual = expectedResult = target;
+        int[] actual = expectedResult = target;
         //System.out.printf("sort: %s", Arrays.toString(actual));
         Arrays.sort(expectedResult);
         insertionSort.sort(actual);

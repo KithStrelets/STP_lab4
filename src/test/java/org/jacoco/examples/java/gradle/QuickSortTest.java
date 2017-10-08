@@ -21,10 +21,9 @@ public class QuickSortTest {
      */
     private final int[] array = {1, 10, 0, -2, 5, 13, 2, 13};
 
-    private int[] result;
     @Test
     public void testSort() {
-        result = array.clone();
+        int[] result = array.clone();
         Arrays.sort(result);
         //System.out.printf("sort: %s", Arrays.toString(array));        
         QuickSort instance = new QuickSort();

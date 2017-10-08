@@ -29,7 +29,7 @@ public class BubbleSortTest {
         BubbleSort instance = new BubbleSort();
         instance.sort(array);
         // TODO review the generated test code and remove the default call to fail.
-        assertArrayEquals("Array is unsorted", array, result);
+        assertArrayEquals("Array is unsorted", result, array );
         System.out.printf("\nsorted: %s\n", Arrays.toString(array));
     }
     

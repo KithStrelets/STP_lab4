@@ -24,8 +24,9 @@ class Greeting {
 // <editor-fold defaultstate="collapsed" desc=" Lab2 ">
 class ArrayOperations {
 
-    Scanner sc = new Scanner(System.in); 
+    private Scanner sc; 
     public void part1(){
+        sc = new Scanner(System.in);
         System.out.println("Enter the size of the array: "); 
         int[] arr = new int[checkedinput()]; 
         System.out.println("Enter the numbers of the array: ");
@@ -35,7 +36,10 @@ class ArrayOperations {
         System.out.println("There are "+(arr.length)+ " numbers in array" + "\nArray is: " + Arrays.toString(arr));
         Arrays.sort(arr);
         ArrayList<Integer> pair = new ArrayList<Integer>();
-        int arraysum = 0, minMaxSum = 0, max = arr[arr.length - 1], min = arr[0];
+        int arraysum = 0;
+        int minMaxSum = 0;
+        int max = arr[arr.length - 1];
+        int min = arr[0];
         for(int a = 0; a < arr.length; a++)
         {
             if(arr[a]%2 == 0){
@@ -56,6 +60,7 @@ class ArrayOperations {
     }
     
     public void part2(){
+        sc = new Scanner(System.in);
         System.out.println("\n\nType in the range of numbers in matrix: \nMinimum: ");
         int MIN = checkedinput();
         System.out.println("\nMaximum: ");
@@ -64,9 +69,13 @@ class ArrayOperations {
         int RANG = checkedinput();
         Random rnd = new Random();        
         int[][] mat = new int[RANG][RANG];
-        int[] vectorA = new int[RANG], vectorB = new int[RANG];
+        int[] vectorA = new int[RANG];
+        int[] vectorB = new int[RANG];
         ArrayList<Integer> vectorZero = new ArrayList<>(), vectorSameNum = new ArrayList<>();
-        boolean checkedA = false, checkedB = false, zeroRow = true, sameNum = true;
+        boolean checkedA = false;
+        boolean checkedB = false;
+        boolean zeroRow = true;
+        boolean sameNum = true;
         for(int i = 0; i < RANG; i++){
             checkedA = checkedB = false;
             int boofer = 0;
@@ -153,7 +162,8 @@ class BubbleSort implements Sorting{
     
     @Override
     public void sort(int array[]){
-        int n = array.length, temp;
+        int n = array.length;
+        int temp;
         boolean swapped;
         do{
             swapped = false;
@@ -181,7 +191,8 @@ class InsertionSort implements Sorting{
         int n = array.length; 
          
         for (int j = 1; j < n; j++) {           
-            int extracted = array[j], i = j - 1;                          
+            int extracted = array[j];
+            int i = j - 1;                          
             while ( (i >= 0) && ( array [i] > extracted ) ) {               
                 array [i+1] = array [i]; 
                 i--;                  
@@ -200,7 +211,8 @@ class QuickSort implements Sorting{
     
     private int partition(int array[], int low, int high)
     {
-        int i = low-1, temp;
+        int i = low-1;
+        int temp;
         for (int j = low; j < high; j++)
         {
             if (array[j] <= array[high])
@@ -235,7 +247,10 @@ class CycleSort implements Sorting{
     @Override
     public void sort(int array[]){
         
-        int n = array.length, value, position, temp;
+        int n = array.length;
+        int value;
+        int position;
+        int temp;
         for (int cycleStart = 0; cycleStart < n; cycleStart++) {
             value = array[cycleStart];
             position = cycleStart;
@@ -268,7 +283,9 @@ class ShellSort implements Sorting{
     @Override
     public void sort(int array[]){
         
-        int n = array.length, temp, j;
+        int n = array.length;
+        int temp;
+        int j;
         
         for(int d = n / 2; d > 0; d /= 2){
             for(int i = d; i < n; i++){
@@ -287,7 +304,10 @@ class CocktailSort implements Sorting{
     
     @Override
     public void sort(int array[]){
-        int n = array.length, start = 0, end = n - 1, temp;
+        int n = array.length;
+        int start = 0;
+        int end = n - 1;
+        int temp;
         boolean swapped = true;
         
         while (swapped)

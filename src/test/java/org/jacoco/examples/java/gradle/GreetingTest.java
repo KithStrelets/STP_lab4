@@ -17,12 +17,9 @@ import static org.junit.Assert.*;
  * @author Никита
  */
 public class GreetingTest {
-    
-    public GreetingTest() {
-    }
-    
+        
     private final ByteArrayOutputStream outContent = new ByteArrayOutputStream();
-
+    
     @Before
     public void setUpStream() {
         System.setOut(new PrintStream(outContent));

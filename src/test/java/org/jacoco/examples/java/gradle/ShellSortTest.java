@@ -21,20 +21,16 @@ public class ShellSortTest {
      */
     private final int[] array = {1, 10, 0, -2, 5, 13, 2, 13};
 
-    private int[] result;
-    @Test(expected =NullPointerException.class)
+
+    @Test
     public void testSort() {
-        try{
-        result = array.clone();
+        int[] result = array.clone();
         Arrays.sort(result);
-        System.out.printf("sort: %s", Arrays.toString(array));
-        
+        //System.out.printf("sort: %s", Arrays.toString(array));  
         ShellSort instance = new ShellSort();
         instance.sort(array);
         // TODO review the generated test code and remove the default call to fail.
         assertArrayEquals("Array is unsorted", array, result);
-        System.out.printf("\nsorted: %s\n", Arrays.toString(array));
-        }
-    catch(AssertionError error){}
+        //System.out.printf("\nsorted: %s\n", Arrays.toString(array));
     }
 }

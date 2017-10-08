@@ -1,9 +1,15 @@
 language: java
 jdk:
   - oraclejdk8
+before_install:
+  - gradle wrapper
 before_script:
-  - chmod +x gradlew
+  - wget https://services.gradle.org/distributions/gradle-2.14-bin.zip
+  - unzip gradle-2.14-bin.zip
+  - export GRADLE_HOME=$PWD/gradle-2.14
+  - export PATH=$GRADLE_HOME/bin:$PATH    
 script:
+  - ./gradlew assemble
   - ./gradlew check
   - ./gradlew codeCoverageReport
 after_success:

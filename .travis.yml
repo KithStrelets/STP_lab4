@@ -21,6 +21,7 @@ script:
   - ./gradlew assemble
   - ./gradlew build
   - ./gradlew codeCoverageReport
+  - ./gradlew uploadCoverageToCodacy
   
 after_success:
   - bash <(curl -s https://codecov.io/bash)

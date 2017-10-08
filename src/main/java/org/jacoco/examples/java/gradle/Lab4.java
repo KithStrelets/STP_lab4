@@ -71,7 +71,8 @@ class ArrayOperations {
         int[][] mat = new int[RANG][RANG];
         int[] vectorA = new int[RANG];
         int[] vectorB = new int[RANG];
-        ArrayList<Integer> vectorZero = new ArrayList<>(), vectorSameNum = new ArrayList<>();
+        ArrayList<Integer> vectorZero = new ArrayList<>();
+        ArrayList<Integer> vectorSameNum = new ArrayList<>();
         boolean checkedA = false;
         boolean checkedB = false;
         boolean zeroRow = true;

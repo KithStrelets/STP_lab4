@@ -1,8 +1,6 @@
 language: java
 sudo: required
 jdk:
-  - openjdk6
-  - oraclejdk7
   - oraclejdk8
 install: /bin/true
 before_install:

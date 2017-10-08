@@ -22,7 +22,7 @@ public class InsertionSortTest {
     /**
      * Test of sort method, of class InsertionSort.
      */
-    @Test
+    @Test(expected=NullPointerException.class)
     public void testSort() {
         int[] array = {1, 10, 0, -2, 5, 13, 2, 13};
         int result[] = array.clone();

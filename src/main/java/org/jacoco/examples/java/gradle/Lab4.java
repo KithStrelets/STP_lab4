@@ -173,10 +173,11 @@ class BubbleSort implements Sorting{
         }
 }
 
-class InsertionSort implements Sorting{
-    
+class InsertionSort implements Sorting{ 
+   public int[] targetArray;
     @Override
     public void sort(int array[]){
+        targetArray = array;
         int n = array.length; 
          
         for (int j = 1; j < n; j++) {           

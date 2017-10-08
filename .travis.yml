@@ -12,7 +12,7 @@ before_script:
   - export PATH=$GRADLE_HOME/bin:$PATH    
 script:
   - ./gradlew assemble
-  - ./gradlew check
+  - ./gradlew build
   - ./gradlew jacocoTestReport
 after_success:
   - bash <(curl -s https://codecov.io/bash)

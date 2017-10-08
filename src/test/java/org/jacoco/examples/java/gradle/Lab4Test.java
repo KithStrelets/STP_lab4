@@ -18,10 +18,8 @@ import static org.junit.Assert.*;
  */
 public class Lab4Test {
     
-    public Lab4Test() {
-    }
     private final ByteArrayOutputStream outContent = new ByteArrayOutputStream();
-
+   
     @Before
     public void setUpStream() {
         System.setOut(new PrintStream(outContent));

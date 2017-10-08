@@ -17,8 +17,6 @@ configurations { codacy }
 
 repositories {
     mavenCentral()
-    maven { url "https://jitpack.io" }
-    maven { url "http://dl.bintray.com/typesafe/maven-releases" }
 }
 
 sourceSets {
@@ -58,3 +56,9 @@ jacocoTestReport {
 }
 
 check.dependsOn(jacocoTestReport)
+
+task wrapper(type: Wrapper) {
+
+    gradleVersion = '4.1'
+
+}

@@ -6,10 +6,6 @@
 package org.jacoco.examples.java.gradle;
 
 import java.util.Arrays;
-import org.junit.After;
-import org.junit.AfterClass;
-import org.junit.Before;
-import org.junit.BeforeClass;
 import org.junit.Test;
 import static org.junit.Assert.*;
 
@@ -19,10 +15,13 @@ import static org.junit.Assert.*;
  */
 public class ShellSortTest {
     
+
     /**
      * Test of sort method, of class ShellSort.
      */
-    private int[] array = {1, 10, 0, -2, 5, 13, 2, 13}, result;
+    private final int[] array = {1, 10, 0, -2, 5, 13, 2, 13};
+
+    private int[] result;
     @Test(expected =NullPointerException.class)
     public void testSort() {
         try{

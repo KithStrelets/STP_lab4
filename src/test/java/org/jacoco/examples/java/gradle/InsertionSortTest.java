@@ -6,8 +6,6 @@
 package org.jacoco.examples.java.gradle;
 
 import java.util.Arrays;
-import java.util.Random;
-import org.junit.Before;
 import org.junit.Test;
 import static org.junit.Assert.*;
 
@@ -17,7 +15,9 @@ import static org.junit.Assert.*;
  */
 public class InsertionSortTest {
 
-    private int[] target = new int[]{1, 10, 0, -2, 5, 13, 2, 13}, expectedResult, actual;
+    private final int[] target = new int[]{1, 10, 0, -2, 5, 13, 2, 13};
+
+    private int[] expectedResult, actual;
 
     /**
      * Test of sort method, of class InsertionSort.

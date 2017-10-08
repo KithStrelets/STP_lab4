@@ -1,6 +1,8 @@
 language: java
 sudo: required
 jdk:
+  - openjdk6
+  - oraclejdk7
   - oraclejdk8
 install: /bin/true
 before_install:
@@ -13,6 +15,8 @@ before_script:
 script:
   - ./gradlew assemble
   - ./gradlew build
+  - ./gradlew codeCoverageReport
   - ./gradlew jacocoTestReport
+  
 after_success:
   - bash <(curl -s https://codecov.io/bash)

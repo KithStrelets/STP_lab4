@@ -6,10 +6,8 @@
 package org.jacoco.examples.java.gradle;
 
 import java.util.Arrays;
-import org.junit.After;
-import org.junit.AfterClass;
+import java.util.Random;
 import org.junit.Before;
-import org.junit.BeforeClass;
 import org.junit.Test;
 import static org.junit.Assert.*;
 
@@ -19,24 +17,21 @@ import static org.junit.Assert.*;
  */
 public class InsertionSortTest {
 
+    private int[] target = new int[]{1, 10, 0, -2, 5, 13, 2, 13}, expectedResult, actual;
+
     /**
      * Test of sort method, of class InsertionSort.
      */
-    private int[] array = {1, 10, 0, -2, 5, 13, 2, 13}, result;
-    @Test(expected = AssertionError.class)
+     
+    @Test
     public void testSort() {
-        try{
-        result = array.clone();
-        Arrays.sort(result);
-        System.out.printf("sort: %s", Arrays.toString(array));
-        
-        InsertionSort instance = new InsertionSort();
-        instance.sort(array);
-        // TODO review the generated test code and remove the default call to fail.
-        assertArrayEquals("Array is unsorted", array, result);
-        System.out.printf("\nsorted: %s\n", Arrays.toString(array));
-        }
-        catch(NullPointerException error){}
-    }
-    
+
+        InsertionSort insertionSort = new InsertionSort();
+        actual = expectedResult = target;
+        //System.out.printf("sort: %s", Arrays.toString(actual));
+        Arrays.sort(expectedResult);
+        insertionSort.sort(actual);
+        assertArrayEquals("Array is unsorted", expectedResult, actual);
+        //System.out.printf("\nsorted: %s\n", Arrays.toString(actual));  
+    }     
 }

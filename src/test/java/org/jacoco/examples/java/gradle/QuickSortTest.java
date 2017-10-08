@@ -23,19 +23,14 @@ public class QuickSortTest {
      * Test of sort method, of class QuickSort.
      */
     private int[] array = {1, 10, 0, -2, 5, 13, 2, 13}, result;
-    @Test(expected=AssertionError.class)
+    @Test
     public void testSort() {
-        try{
         result = array.clone();
         Arrays.sort(result);
-        System.out.printf("sort: %s", Arrays.toString(array));
-        
+        //System.out.printf("sort: %s", Arrays.toString(array));        
         QuickSort instance = new QuickSort();
         instance.sort(array);
-        // TODO review the generated test code and remove the default call to fail.
         assertArrayEquals("Array is unsorted", array, result);
-        System.out.printf("\nsorted: %s\n", Arrays.toString(array));    
-        }
-        catch(NullPointerException error){}
+        //System.out.printf("\nsorted: %s\n", Arrays.toString(array)); 
     }
 }

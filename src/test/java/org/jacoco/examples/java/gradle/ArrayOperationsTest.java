@@ -7,8 +7,6 @@ package org.jacoco.examples.java.gradle;
 
 
 import java.util.Arrays;
-import java.util.Scanner;
-import javafx.scene.input.KeyCode;
 import org.junit.Test;
 import static org.junit.Assert.*;
 

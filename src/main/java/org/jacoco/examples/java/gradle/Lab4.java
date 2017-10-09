@@ -3,10 +3,16 @@ package org.jacoco.examples.java.gradle;
 import java.util.*;
 /**
  * Testing javadoc tool
+ * Main just greets a user, but java file contains other classes, which are private
 * @author Nikita
 * 
 */ 
 public class Lab4{
+
+    /**
+     *main static void
+     * @param args
+     */
     public static void main(String[] args) {
         
         Greeting gr = new Greeting();
@@ -170,34 +176,6 @@ class ArrayOperations {
                 if(!checkedInside)vectorB[i] = -1;
             }
         }
-//        mat = matrix;
-//        vectorZero = new ArrayList<>();
-//        vectorSameNum = new ArrayList<>();
-//        boolean checkedA = false;
-//        boolean checkedB = false;
-//        boolean zeroRow = true;
-//        boolean sameNum = true;
-//        boolean createMatrix = false;
-//        if(mat.length == 0){
-//            createMatrix = true;
-//            sc = new Scanner(System.in);
-//            System.out.println("\n\nType in the range of numbers in matrix: \nMinimum: ");
-//            int MIN = checkedinput();
-//            System.out.println("\nMaximum: ");
-//            int MAX = checkedinput();
-//            System.out.println("\nType in the order N of the square matrix: ");
-//            int RANG = checkedinput();
-//            Random rnd = new Random();
-//            vectorA = new int[RANG];
-//            vectorB = new int[RANG];
-//            mat = new int[RANG][RANG];
-//            matrixLoop(RANG, MAX, MIN, checkedA, checkedB, zeroRow, sameNum,createMatrix, mat, rnd);
-//        }
-//        else{
-//            vectorA = new int[mat.length];
-//            vectorB = new int[mat.length];
-//            matrixLoop(mat.length, 0, 0, checkedA, checkedB, zeroRow, sameNum, createMatrix, mat, null);
-//        }
       
         System.out.println("Sum after the first negative: " + Arrays.toString(vectorA));
         System.out.println("Sum before the last negative: " + Arrays.toString(vectorB));
@@ -218,7 +196,7 @@ class ArrayOperations {
         }
         }
         return input;
-    }
+    }    
 }
 
 // </editor-fold>

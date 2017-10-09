@@ -7,6 +7,8 @@ package org.jacoco.examples.java.gradle;
 
 
 import java.util.Arrays;
+import java.util.Scanner;
+import javafx.scene.input.KeyCode;
 import org.junit.Test;
 import static org.junit.Assert.*;
 
@@ -34,6 +36,10 @@ public class ArrayOperationsTest {
     public void testPart1ArrayIsNotNull() {
         arOps.part1(targetArray);
         assertNotNull("There is no array to operate with",arOps.getArray());
+    }
+    public void testPart1ArrayIsNotEmpty() {
+        arOps.part1(targetArray);
+        assertNotEquals("Empty array",0,arOps.getArray().length);
     }
     @Test
     public void testPart1SumOfPairNumbers() {
@@ -66,11 +72,16 @@ public class ArrayOperationsTest {
         assertEquals("Absolute MAX number is wrong",13, arOps.getAbsMax());
     }
     // </editor-fold>
-    
+
+// <editor-fold defaultstate="collapsed" desc=" method part2() ">    
     @Test
     public void testPart2MatrixIsNotNull(){ 
         arOps.part2(targetMatrix);
         assertNotNull("There is no matrix to operate with",arOps.getMatrix());
+    }
+        public void testPart2MatrixIsNotEmpty(){ 
+        arOps.part2(targetMatrix);
+        assertNotEquals("Empty matrix", 0,arOps.getMatrix().length);
     }
     @Test
     public void testPart2MatrixSumAfterFirstNegative(){
@@ -103,5 +114,6 @@ public class ArrayOperationsTest {
         assertEquals("Doesn't detect the rule of -1",-1, actual[3]);        
     }
     
+    // </editor-fold>
     
 }

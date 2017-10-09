@@ -24,20 +24,37 @@ class Greeting {
 // <editor-fold defaultstate="collapsed" desc=" Lab2 ">
 class ArrayOperations {
 
+    private int pairedNum,tripleSum, minMaxDif, arrayMean, minMaxSum, absMax;
+    public int getPairedNum(){return pairedNum;}
+    public int getTripleSum(){return tripleSum;}
+    public int getMinMaxDif(){return minMaxDif;}
+    public int getArrayMean(){return arrayMean;}
+    public int getMinMaxSum(){return minMaxSum;}
+    public int getAbsMax(){return absMax;}
+            
     private Scanner sc; 
-    public void part1(){
+    private int[] arr;
+    public int [] getArray(){return arr;}
+    
+    public void part1(int[] array){
+        arr = array;
+        if (arr.length == 0){
         sc = new Scanner(System.in);
         System.out.println("Enter the size of the array: "); 
-        int[] arr = new int[checkedinput()]; 
+        arr = new int[checkedinput()]; 
         System.out.println("Enter the numbers of the array: ");
                 for (int a = 0; a < arr.length; a++) {                           
                         arr[a] = checkedinput();  
                 }
         System.out.println("There are "+(arr.length)+ " numbers in array" + "\nArray is: " + Arrays.toString(arr));
+        }
+        else{
+            System.out.printf("%s numbers in array \nArray is: %s\n", arr.length, Arrays.toString(arr));
+        }
         Arrays.sort(arr);
         ArrayList<Integer> pair = new ArrayList<Integer>();
         int arraysum = 0;
-        int minMaxSum = 0;
+        minMaxSum = 0;
         int max = arr[arr.length - 1];
         int min = arr[0];
         for(int a = 0; a < arr.length; a++)
@@ -51,37 +68,60 @@ class ArrayOperations {
             }
         }
         int res = (Math.abs(min)>max)?min:max;
-        System.out.println("Number of paired elems: " + pair.size() 
-                + "\n3x multiplied sum: " + arraysum*3
-                + "\nDif between min and max: " + Math.subtractExact(max,min)
-                + "\nArithmetic mean: " + (arraysum/arr.length)
+        System.out.println("Number of paired elems: " + (pairedNum = pair.size()) 
+                + "\n3x multiplied sum: " + (tripleSum = arraysum*3)
+                + "\nDif between min and max: " + (minMaxDif = Math.subtractExact(max,min))
+                + "\nArithmetic mean: " + (arrayMean = arraysum/arr.length)
                 + "\nSum of the largest and smallest numbers: " + minMaxSum
-                + "\nMaximum by module element of the array: " + res);         
+                + "\nMaximum by module element of the array: " + (absMax = res));         
     }
     
-    public void part2(){
-        sc = new Scanner(System.in);
-        System.out.println("\n\nType in the range of numbers in matrix: \nMinimum: ");
-        int MIN = checkedinput();
-        System.out.println("\nMaximum: ");
-        int MAX = checkedinput();
-        System.out.println("\nType in the order N of the square matrix: ");
-        int RANG = checkedinput();
-        Random rnd = new Random();        
-        int[][] mat = new int[RANG][RANG];
-        int[] vectorA = new int[RANG];
-        int[] vectorB = new int[RANG];
-        ArrayList<Integer> vectorZero = new ArrayList<>();
-        ArrayList<Integer> vectorSameNum = new ArrayList<>();
-        boolean checkedA = false;
-        boolean checkedB = false;
-        boolean zeroRow = true;
-        boolean sameNum = true;
+    private ArrayList<Integer> vectorZero, vectorSameNum;
+    public ArrayList<Integer> getVectorZero(){return vectorZero;}
+    public ArrayList<Integer> getVectorSameNum(){return vectorSameNum;}
+    private int[] vectorA, vectorB;
+    public int[] getSumAfterFirst(){return vectorA;}
+    public int[] getSumBeforeLast(){return vectorB;}
+    
+    private int[][] mat;
+    public int [][] getMatrix(){return mat;}
+    
+    public void part2(int [][] matrix){
+        mat = matrix;
+        int RANG;
+        int MAX;
+        int MIN;
+        boolean createMatrix = (mat.length == 0)? true : false;
+        vectorZero = new ArrayList<>();
+        vectorSameNum = new ArrayList<>();
+        boolean checkedA;
+        boolean checkedB;
+        boolean zeroRow;
+        boolean sameNum;
+        Random rnd = new Random();
+        if(createMatrix){
+            sc = new Scanner(System.in);
+            System.out.println("\n\nType in the range of numbers in matrix: \nMinimum: ");
+            MIN = checkedinput();
+            System.out.println("\nMaximum: ");
+            MAX = checkedinput();
+            System.out.println("\nType in the order N of the square matrix: ");
+            RANG = checkedinput();
+            mat = new int[RANG][RANG];
+        }
+        else{
+            RANG = matrix.length;
+            MAX = 0;
+            MIN = 0;
+        }
+        vectorA = new int[RANG];
+        vectorB = new int[RANG];
         for(int i = 0; i < RANG; i++){
             checkedA = checkedB = false;
+            zeroRow = sameNum = true;
             int boofer = 0;
             for (int j = 0; j < RANG; j++) {
-                mat[i][j] = rnd.nextInt(MAX-MIN) + MIN;
+                if(createMatrix)mat[i][j] = rnd.nextInt(MAX-MIN) + MIN;
                 System.out.print("\t" + mat[i][j]);
                 if(!checkedA){                    
                     if(j == RANG - 1 & mat[i][j] < 0){
@@ -130,6 +170,35 @@ class ArrayOperations {
                 if(!checkedInside)vectorB[i] = -1;
             }
         }
+//        mat = matrix;
+//        vectorZero = new ArrayList<>();
+//        vectorSameNum = new ArrayList<>();
+//        boolean checkedA = false;
+//        boolean checkedB = false;
+//        boolean zeroRow = true;
+//        boolean sameNum = true;
+//        boolean createMatrix = false;
+//        if(mat.length == 0){
+//            createMatrix = true;
+//            sc = new Scanner(System.in);
+//            System.out.println("\n\nType in the range of numbers in matrix: \nMinimum: ");
+//            int MIN = checkedinput();
+//            System.out.println("\nMaximum: ");
+//            int MAX = checkedinput();
+//            System.out.println("\nType in the order N of the square matrix: ");
+//            int RANG = checkedinput();
+//            Random rnd = new Random();
+//            vectorA = new int[RANG];
+//            vectorB = new int[RANG];
+//            mat = new int[RANG][RANG];
+//            matrixLoop(RANG, MAX, MIN, checkedA, checkedB, zeroRow, sameNum,createMatrix, mat, rnd);
+//        }
+//        else{
+//            vectorA = new int[mat.length];
+//            vectorB = new int[mat.length];
+//            matrixLoop(mat.length, 0, 0, checkedA, checkedB, zeroRow, sameNum, createMatrix, mat, null);
+//        }
+      
         System.out.println("Sum after the first negative: " + Arrays.toString(vectorA));
         System.out.println("Sum before the last negative: " + Arrays.toString(vectorB));
         System.out.println("Rows with all zero numbers: " + Arrays.toString(vectorZero.toArray()));

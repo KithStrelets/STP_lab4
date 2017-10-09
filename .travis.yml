@@ -17,11 +17,10 @@ before_script:
   - unzip gradle-4.1-bin.zip
   - export GRADLE_HOME=$PWD/gradle-4.1
   - export PATH=$GRADLE_HOME/bin:$PATH  
-  - export CODACY_PROJECT_TOKEN=a50aeddd7e294ebca73eb746fdf030fc
   
 script:
   - ./gradlew assemble
-  - ./gradlew check
+  - ./gradlew chec
   - ./gradlew codeCoverageReport
   
 after_success:

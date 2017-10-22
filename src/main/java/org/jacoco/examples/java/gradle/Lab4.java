@@ -1,4 +1,4 @@
-package org.jacoco.examples.java.gradle;
+-package org.jacoco.examples.java.gradle;
 
 import java.util.*;
 /**
